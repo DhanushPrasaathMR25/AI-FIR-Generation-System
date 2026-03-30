@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Official FIR Document - Form I</title>
+
+<style>
+
+@font-face{
+font-family:'NotoSerifTamil';
+src:url('file:///D:/fir_ai_local/fonts/NotoSerifTamil-Regular.ttf') format('truetype');
+font-weight:normal;
+font-style:normal;
+}
+
+/* ===== A4 PAGE SETTINGS ===== */
+/* ===== GLOBAL FIX ===== */
+
+*{
+box-sizing:border-box;
+word-wrap:break-word;
+overflow-wrap:break-word;
+}
+
+.t-label{
+font-weight:bold;
+font-size: 11px;
+}
+
+:root{
+--eng-font:15px;
+--tamil-font:8.9pt;
+}
+/* ===== PAGE SETUP ===== */
+
+@page{
+size:A4;
+margin:10mm;
+}
+
+body{
+margin:0;
+padding:0;
+font-family:
+"Times New Roman",
+"Latha",
+"Nirmala UI",
+"Noto Serif Tamil",
+serif;
+font-size:var(--eng-font);
+background:white;
+display:flex;
+justify-content:center;
+}
+
+@media print{
+body{
+background:white;
+}
+}
+
+/* ===== A4 PAGE ===== */
+
+.a4-page{
+width:210mm;
+min-height:297mm;
+background:white;
+padding:8mm 5mm;
+box-shadow:0 0 8px rgba(0,0,0,0.2);
+}
+
+/* HEADER */
+.f-label{
+font-weight:bold;
+margin-right:3px;
+display:inline-block;
+font-size:var(--eng-font);
+}
+
+.field-value{
+display:inline;
+word-break:break-word;
+overflow-wrap:anywhere;
+}
+
+.header{
+position:relative;
+margin-bottom:25px;
+}
+
+.header-center{
+text-align:center;
+width:100%;
+}
+
+.header-right{
+position:absolute;
+right:0;
+top:0;
+text-align:right;
+line-height:1.2;
+}
+/* SECTION STRUCTURE */
+
+.section{
+display:grid;
+grid-template-columns:30px 1fr;
+column-gap:0px;
+margin-bottom:14px;
+align-items:start;
+page-break-inside:avoid;
+break-inside:avoid;
+}
+
+.section > div:nth-child(2){
+border-bottom:0.4px dotted #999;
+padding-bottom:6px;
+}
+
+.row{
+margin-top:4px;
+}
+
+/* LABEL STYLE */
+
+.tamil{
+font-family:'NotoSerifTamil', serif;
+font-size:var(--tamil-font);
+}
+
+.tamil-value{
+font-family:'NotoSerifTamil', serif;
+font-size:9px;
+}
+
+/* MULTI FIELD GRID */
+
+
+.bilingual-grid-5{
+display:grid;
+grid-template-columns: minmax(0,50mm) minmax(0,29mm) minmax(0,27mm) minmax(0,55mm) minmax(0,31mm);
+column-gap:1mm;
+row-gap:2mm;
+max-width:100%;
+}
+
+.s1-district{ margin-right:40px; }
+.s1-ps{ margin-right:40px; }
+.s1-year{ margin-right:30px; }
+.s1-fir{ margin-right:40px; }
+.s1-date{ margin-right:0px; }
+
+.bilingual-grid-3{
+display:grid;
+grid-template-columns: minmax(0,80mm) minmax(0,47mm) minmax(0,45mm);
+gap:6px;
+min-width:0;
+line-height:1.35;
+}
+
+.bilingual-grid-2{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:8px;
+min-width:0;
+line-height:1.35;
+}
+
+
+.section2-table{
+display:grid;
+row-gap:6px;
+}
+
+.sec2-header{
+display:grid;
+grid-template-columns:1fr 125px;
+font-weight:bold;
+margin-bottom:4px;
+}
+
+.sec2-row{
+display:grid;
+grid-template-columns:1fr 125px;
+align-items:center;
+}
+
+.sec-col-title{
+text-align:center;
+white-space:nowrap;
+}
+
+.sec-value{
+text-align:center;
+font-size: small;
+font-weight:600;
+}
+/* SINGLE FIELD */
+
+.single-field{
+margin-top:3px;
+line-height:1.35;
+}
+
+.single-field .tamil{
+margin-top:2px;
+}
+
+/* English label */
+.eng-label{
+font-weight:600;
+font-size:7px;
+}
+
+/* English value/input */
+.eng-value{
+font-weight:400;
+font-size:7px;
+}
+
+/* Tamil label */
+.tamil-label{
+font-family:'NotoSerifTamil', serif;
+font-weight:600;
+font-size:9pt;
+}
+
+/* Tamil value/input */
+.tamil-value{
+font-family:'NotoSerifTamil', serif;
+font-weight:400;
+font-size:9pt;
+}
+
+/* NARRATIVE */
+
+.narrative-box{
+border:1.5px solid black;
+padding:10px;
+min-height:180px;
+font-size:10.5pt;
+white-space:pre-wrap;
+word-break:break-word;
+line-height: 1.4;
+}
+
+/* FOOTER */
+
+.footer-sigs{
+display:flex;
+justify-content:space-between;
+margin-top:15px;
+}
+
+.sig-block{
+width:45%;
+border-top:1.5px solid black;
+text-align:center;
+font-size:9pt;
+padding-top:5px;
+}
+
+.value,
+.tamil-value{
+white-space:nowrap;
+}
+
+/* default english value */
+.value{
+font-size:11px;
+}
+
+/* tamil text slightly smaller */
+.tamil-text{
+font-size:8.5pt;
+}
+
+/* tamil numeric same as english */
+.tamil-num{
+font-size:14px;
+}
+
+.title-main{
+font-weight:bold;
+text-align:center;
+margin:0;
+}
+
+.title-sub{
+text-align:center;
+font-size:10pt;
+}
+
+.act-name{
+font-size:9.5px;
+}
+
+.action-box{
+border:1px solid black;
+padding:8px;
+min-height:40px;
+}
+.act-eng{
+font-size:12px;
+font-weight:600;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="a4-page">
+
+<div class="header">
+
+<div class="header-center">
+
+<h1 class="title-main" style="font-size:medium;">
+FIRST INFORMATION REPORT
+</h1>
+
+<div class="tamil" style="font-size: 13.5px; font-weight: 700;">
+முதல் தகவல் அறிக்கை
+</div>
+
+<div class="title-sub" style="font-size: 14px; font-weight: 700;">
+(Under Section 154 BNSS)
+</div>
+
+<div class="tamil" style="font-size: 11.1px; font-weight: 700;">
+(பா.கு.பா.ச 154 இன் கீழ்)
+</div>
+
+</div>
+
+<div class="header-right">
+<div style="font-size:8.8pt;font-weight:bold;">TAMIL NADU POLICE</div>
+<div style="font-size:6.9pt;">INTEGRATED INVESTIGATION FORM - I</div>
+</div>
+
+</div>
+
+
+<!-- SECTION 1 -->
+
+<div class="section">
+<div class="s-num">1.</div>
+
+<div>
+
+<div class="bilingual-grid-5">
+
+<!-- English row -->
+
+<div><span class="f-label">District :</span>{{ district }}</div>
+<div><span class="f-label">P.S :</span>{{ ps }}</div>
+<div><span class="f-label">Year :</span>{{ year }}</div>
+<div><span class="f-label">FIR No :</span>{{ fir_no }}</div>
+<div><span class="f-label">Date :</span>{{ date_now }}</div>
+
+<!-- Tamil row -->
+
+<div class="tamil"><span class="t-label">மாவட்டம் :</span> {{ district_ta }}</div>
+<div class="tamil"><span class="t-label">கா.நி :</span> {{ ps_ta }}</div>
+<div class="tamil"><span class="t-label">ஆண்டு :</span> {{ year_ta }}</div>
+<div class="tamil"><span class="t-label">மு.த.அ எண் :</span> {{ fir_no_ta }}</div>
+<div class="tamil"><span class="t-label">தேதி :</span> {{ date_now }}</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- SECTION 2 -->
+
+<div class="section">
+<div>2.</div>
+
+<div class="section2-table">
+
+<!-- header -->
+<div class="sec2-header">
+<div>
+Act <span class="tamil">(சட்டம்)</span>
+</div>
+
+<div class="sec-col-title" style="font-size:14px ;">
+Section <span class="tamil">(பிரிவு)</span>
+</div>
+</div>
+
+{% for sec in predicted_sections.split(',') %}
+
+<div class="sec2-row">
+
+<div>
+<span class="act-eng">BHARATIYA NYAYA SANHITA (BNS), 2023</span>
+<span class="tamil">(பாரதிய நியாய சன்ஹிதா (BNS), 2023)</span>
+</div>
+
+<div class="sec-value">
+{{ sec.strip() }}
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+</div>
+
+
+<!-- SECTION 3 -->
+
+<div class="section">
+<div>3.</div>
+
+<div>
+
+<div class="bilingual-grid-3">
+
+<div><span class="f-label">(a) Occurrence day :</span>{{ occurrence_day }}</div>
+<div><span class="f-label">Date From :</span>{{ date_from }}</div>
+<div><span class="f-label">Date To :</span>{{ date_to }}</div>
+
+<div class="tamil"><span class="t-label">நிகழ்ந்த நாள் :</span> {{ occurrence_day_ta }}</div>
+<div class="tamil"><span class="t-label">தொடக்க தேதி :</span> {{ date_from }}</div>
+<div class="tamil"><span class="t-label">முடிவு தேதி :</span> {{ date_to }}</div>
+
+</div>
+
+<div class="bilingual-grid-3" style="margin-top:6px;">
+
+<div><span class="f-label">Time period :</span> On</div>
+<div><span class="f-label">Time From :</span>{{ time_from }}</div>
+<div><span class="f-label">Time To :</span>{{ time_to }}</div>
+
+<div class="tamil"><span class="t-label">நேர காலம் :</span> அன்று</div>
+<div class="tamil"><span class="t-label">தொடக்க நேரம் :</span> {{ time_from }}</div>
+<div class="tamil"><span class="t-label">முடிவு நேரம் :</span> {{ time_to }}</div>
+
+</div>
+
+<div class="bilingual-grid-2" style="margin-top:6px;">
+
+<div><span class="f-label">(b) Info Received at P.S Date :</span>{{ info_received_date }}</div>
+<div><span class="f-label">Info received time :</span>{{ info_received_time }}</div>
+
+<div class="tamil"><span class="t-label">தகவல் பெறப்பட்ட தேதி :</span> {{ info_received_date }}</div>
+<div class="tamil"><span class="t-label">தகவல் பெறப்பட்ட நேரம் :</span> {{ info_received_time }}</div>
+
+</div>
+
+
+<div class="bilingual-grid-2" style="margin-top:6px;">
+
+<div><span class="f-label">(c) GD Entry No :</span>{{ gd_entry_no }}</div>
+<div><span class="f-label">GD entry time :</span>{{ GD_entry_time }}</div>
+
+<div class="tamil"><span class="t-label">பொது பதிவேடு எண் :</span> {{ gd_entry_no }}</div>
+<div class="tamil"><span class="t-label">பதிவு நேரம் :</span> {{ GD_entry_time }}</div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- SECTION 4 -->
+
+<div class="section">
+<div>4.</div>
+<div class="single-field">
+
+<div><span class="f-label">Type of Information :</span>{{ type_of_info }}</div>
+<div class="tamil"><span class="t-label">தகவல் வகை :</span>{{ type_of_info_ta }}</div>
+
+</div>
+</div>
+
+
+<!-- SECTION 5 -->
+
+<div class="section">
+<div>5.</div>
+
+<div>
+
+<div class="row"><span class="f-label">Place of Occurrence :</span></div>
+
+<div class="bilingual-grid-3">
+
+<div><span class="f-label">Distance from P.S :</span>{{ distance_ps }}</div>
+<div><span class="f-label">Direction :</span>{{ direction_ps }}</div>
+<div><span class="f-label">Beat No :</span>{{ beat_no }}</div>
+
+<div class="tamil"><span class="t-label">காவல் நிலைய தூரம் :</span> {{ distance_ps_ta }}</div>
+<div class="tamil"><span class="t-label">திசை :</span> {{ direction_ps_ta }}</div>
+<div class="tamil"><span class="t-label">பீட் எண் :</span> {{ beat_no }}</div>
+
+</div>
+
+<div class="single-field" style="margin-top:6px;">
+
+<div><span class="f-label">(b) Address :</span>{{ address }}</div>
+<div class="tamil"><span class="t-label">முகவரி :</span> {{ address_ta }}</div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- SECTION 6 -->
+
+<div class="section">
+<div>6.</div>
+
+<div>
+
+<div class="row"><span class="f-label">Complainant / Informant :</span></div>
+
+<div class="bilingual-grid-2">
+
+<div><span class="f-label">(a) Name :</span>{{ comp_name }}</div>
+<div><span class="f-label">(b) Father's Name :</span>{{comp_father}} </div>
+
+<div class="tamil"><span class="t-label">பெயர் :</span> {{ comp_name_ta }}</div>
+<div class="tamil"><span class="t-label">தந்தை பெயர் :</span> {{ comp_father_ta }}</div>
+
+</div>
+
+<div class="bilingual-grid-2" style="margin-top:6px;">
+
+<div><span class="f-label">(c) DOB :</span>{{ comp_dob }}</div>
+<div><span class="f-label">(d) Nationality :</span>{{ comp_nationality }}</div>
+
+<div class="tamil"><span class="t-label">பிறந்த தேதி :</span> {{ comp_dob }}</div>
+<div class="tamil"><span class="t-label">தேசியம் :</span> {{ comp_nationality_ta }}</div>
+
+</div>
+
+<!-- (e) Address row -->
+<div class="single-field" style="margin-top:6px;">
+
+<div>
+<span class="f-label">(e) Address :</span>
+<span class="field-value">{{ comp_address }}</span>
+</div>
+
+<div class="tamil">
+<span class="t-label">முகவரி :</span>
+<span class="field-value">{{ comp_address_ta }}</span>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- SECTION 7 -->
+
+<div class="section">
+<div>7.</div>
+
+<div class="single-field">
+
+<div><span class="f-label">Details of Accused :</span>{{ accused_details }}</div>
+<div class="tamil"><span class="t-label">குற்றஞ்சாட்டப்பட்டவர் :</span> {{ accused_details_ta }}</div>
+
+</div>
+</div>
+
+
+<!-- SECTION 8 -->
+
+<div class="section">
+<div>8.</div>
+
+<div class="single-field">
+
+<div><span class="f-label">Reasons for delay in reporting :</span>{{ delay_reason }}</div>
+<div class="tamil"><span class="t-label">தாமதமான காரணம் :</span> {{ delay_reason_ta }}</div>
+
+</div>
+</div>
+
+<!-- SECTION 9 -->
+
+<div class="section">
+<div>9.</div>
+
+<div class="single-field">
+
+<div>
+<span class="f-label">Particulars of Properties Stolen :</span>{{ properties_stolen }}
+</div>
+
+<div class="tamil">
+<span class="t-label">திருடப்பட்ட பொருட்கள் :</span>
+{{ properties_stolen_ta }}
+</div>
+
+</div>
+</div>
+
+<!-- SECTION 10 -->
+
+<div class="section">
+<div>10.</div>
+
+<div class="single-field">
+
+<div>
+<span class="f-label">Total Value of Properties Stolen :</span>{{ total_property_value }}
+</div>
+
+<div class="tamil">
+<span class="t-label">திருடப்பட்ட பொருட்களின் மொத்த மதிப்பு :</span>
+<span class="tamil-num">{{ total_property_value }}</span>
+</div>
+
+</div>
+</div>
+
+<!-- SECTION 11 -->
+
+<div class="section">
+<div>11.</div>
+
+<div class="single-field">
+
+<div>
+<span class="f-label">Inquest / U.D Case No. if any :</span>{{ inquest_case_no }}
+</div>
+
+<div class="tamil">
+<span class="t-label">இன்குயஸ்ட் / யூ.டி வழக்கு எண் :</span>
+<span class="tamil-num">{{ inquest_case_no }}</span>
+</div>
+
+</div>
+</div>
+
+<!-- SECTION 12 -->
+
+<div class="section">
+<div>12.</div>
+
+<div>
+
+<div class="f-label">FIR Contents :</div>
+
+<div class="narrative-box">
+
+{{ complaint_narrative }}
+
+{{ complaint_narrative_ta }}
+
+</div>
+
+</div>
+</div>
+<!-- FOOTER -->
+ <!-- SECTION 13 -->
+
+<div class="section">
+<div>13.</div>
+
+<div class="single-field">
+
+<div>
+<span class="f-label">Action Taken :</span>{{ action_taken }}
+</div>
+
+<div class="tamil">
+<span class="t-label">எடுக்கப்பட்ட நடவடிக்கை :</span>
+{{ action_taken_ta }}
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<div>14.</div>
+
+
+<div class="footer-sigs">
+<div class="sig-block">Signature of Complainant</div>
+<div class="sig-block">Signature of Officer in-charge</div>
+</div>
+
+</div>
+
+<!-- SECTION 15 -->
+
+<div class="section">
+<div>15.</div>
+
+<div class="bilingual-grid-2">
+
+<div>
+<span class="f-label">Dispatch to Court Date/Time :</span>{{ court_dispatch_date }}
+</div>
+
+<div>
+<span class="f-label">Officer Name :</span>{{ io_name }}
+</div>
+
+<div class="tamil">
+<span class="t-label">நீதிமன்றத்திற்கு அனுப்பிய தேதி / நேரம் :</span>
+{{ court_dispatch_date }}
+</div>
+
+<div class="tamil">
+<span class="t-label">அதிகாரி பெயர் :</span>
+{{ io_name_ta }}
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</body>
+</html>

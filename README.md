@@ -19,7 +19,7 @@ This project automates FIR (First Information Report) generation and predicts re
 ## 📂 Project Structure
 - fir_app.py → Main application
 - fir_generator.py → FIR generation logic
-- model_definition.py → ML model
+- model_definition.py → ML-model
 - db_manager.py → Database handling
 - text_processor.py → NLP preprocessing
 

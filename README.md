@@ -23,6 +23,10 @@ This project automates FIR (First Information Report) generation and predicts re
 - db_manager.py → Database handling
 - text_processor.py → NLP preprocessing
 
+## 👥 Team Members
+- Dhanush Prasaath
+- HARSHINI K V
+
 ## ▶️ How to Run
 
 ```bash

@@ -26,6 +26,7 @@ This project automates FIR (First Information Report) generation and predicts re
 ## 👥 Team Members
 - Dhanush Prasaath
 - HARSHINI K V
+- Abinaya V
 
 ## ▶️ How to Run
 
